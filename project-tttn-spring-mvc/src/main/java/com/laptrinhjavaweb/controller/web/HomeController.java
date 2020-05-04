@@ -4,8 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.dto.MotocrycleDTO;
@@ -32,23 +29,9 @@ public class HomeController {
 	private IMotocrycleService motocrycleService;
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
-	public ModelAndView homePage(@RequestParam("page") int page,
-			@RequestParam("limit") int limit, @ModelAttribute("model") MotocrycleDTO model,
-			@RequestParam(value = "id", required = false) Long id) {
-
-		model.setPage(page);
-		model.setLimit(limit);
-
+	public ModelAndView homePage(@ModelAttribute("model") MotocrycleDTO model) {
 		ModelAndView modelAndView = new ModelAndView("web/home");
-
-		Pageable pageable = new PageRequest(page - 1, limit);
-		model.setListResult(motocrycleService.findAll(pageable));
-		model.setTotalItem(motocrycleService.getTotalItem());
-		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
-
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String name = authentication.getName();
-		modelAndView.addObject("name", name);
+		model.setListResult(motocrycleService.findAll());
 		modelAndView.addObject("model", model);
 		return modelAndView;
 	}

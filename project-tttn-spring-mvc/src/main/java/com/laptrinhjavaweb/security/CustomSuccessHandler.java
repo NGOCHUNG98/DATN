@@ -41,15 +41,15 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		String url="";
 		List<String> roles=SecurityUtils.getAuthorities();
 		if(isAdmin(roles)) {
-			url="/quan-tri/trang-chu";
+			url="/nhan-vien-quan-tri/trang-chu";
 		}else if(isUser(roles)) {
-			url="/trang-chu?page=1&limit=6";
+			url="/trang-chu";
 		}
 		return url;
 	}
 	
 	private boolean isAdmin(List<String> roles) {
-		if(roles.contains("ADMIN")) {
+		if(roles.contains("EMPLOYEE")) {
 			return true;
 		}
 		return false;

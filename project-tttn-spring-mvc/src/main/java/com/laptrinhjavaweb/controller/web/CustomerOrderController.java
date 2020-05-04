@@ -52,9 +52,8 @@ public class CustomerOrderController {
 	@RequestMapping(value = "/thanh-toan", method = RequestMethod.GET)
 	public ModelAndView pay(HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView("web/pay");
-		//String fileName="C:\\Users\\ADMIN\\Desktop\\DATN\\project-tttn-spring-mvc\\src\\main\\webapp\\resources\\json\\city.json";
 		try {
-			File file=new File("C:\\Users\\ADMIN\\Desktop\\DATN\\project-tttn-spring-mvc\\src\\main\\webapp\\resources\\json\\city.json");
+			File file=new File("D:\\Project\\DATN\\project-tttn-spring-mvc\\src\\main\\webapp\\resources\\json\\city.json");
 			JSONParser parser = new JSONParser();
 			BufferedReader in = new BufferedReader(
 					   new InputStreamReader(
@@ -93,7 +92,7 @@ public class CustomerOrderController {
 		orderDTO.setCustomerPhone(request.getParameter("customerPhone"));
 		orderDTO.setOrderDate(new Timestamp(new Date().getTime()));
 		orderDTO.setNote(request.getParameter("note"));
-		orderDTO.setStatus(true);
+		orderDTO.setStatus(1);
 		ModelAndView modelAndView = new ModelAndView("web/confirmCustomer");
 		if (session != null && authentication != null) {
 			HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>) session.getAttribute("cart");
@@ -108,7 +107,7 @@ public class CustomerOrderController {
 				//OrderEntity entity=new OrderEntity();
 				orderDetailDTO.setOrderId(orderDTO.getId());
 				orderDetailDTO.setMotocrycleId(entry.getValue().getMotocrycle().getId());
-				orderDetailDTO.setQuantity(entry.getValue().getMotocrycle().getQuantity());
+				orderDetailDTO.setQuantity(entry.getValue().getQuantity());
 				orderDetailService.save(orderDetailDTO);
 			}
 			cart=new HashMap<Long, CartDTO>();

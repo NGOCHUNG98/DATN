@@ -77,28 +77,28 @@
 
                                     <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
                                         <ul class="navbar-nav animated" id="nav">
-                                            <li class="nav-item active"><a class="nav-link" href='<c:url value="/trang-chu?page=1&limit=6"/>'>Home</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href='<c:url value="/trang-chu"/>'>Home</a></li>
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                                                 <div class="dropdown-menu" aria-labelledby="karlDropdown">
-                                                    <a class="dropdown-item" href="index.html">Home</a>
-                                                    <a class="dropdown-item" href="shop.html">Shop</a>
-                                                    <a class="dropdown-item" href="product-details.html">Product Details</a>
-                                                    <a class="dropdown-item" href="cart.html">Cart</a>
-                                                    <a class="dropdown-item" href="checkout.html">Checkout</a>
+                                                    <a class="dropdown-item" href='<c:url value="/trang-chu"/>'>Home</a>
+                                                    <a class="dropdown-item" href="#">Shop</a>
+                                                    <a class="dropdown-item" href="#">Product Details</a>
+                                                    <a class="dropdown-item" href="#">Cart</a>
+                                                    <a class="dropdown-item" href="#">Checkout</a>
                                                 </div>
                                             </li>
                                             <c:url var="profileUser" value="/thong-tin-ca-nhan">
 												<c:param name="username" value="${name}"></c:param>
 												</c:url>
                                             <security:authorize access="isAnonymous()">
-                                            	<li class="nav-item"><a class="nav-link" href='<c:url value="/dang-nhap"/>'>Đăng nhập</a></li>
-                                            	<li class="nav-item"><a class="nav-link" href='<c:url value="/dang-ky"/>'>Đăng ký</a></li>
+                                            	<li class="nav-item"><a class="nav-link" href='<c:url value="/dang-nhap"/>'>Sign in</a></li>
+                                            	<li class="nav-item"><a class="nav-link" href='<c:url value="/dang-ky"/>'>Sign up</a></li>
                                             </security:authorize>
                                             <security:authorize access="isAuthenticated()">
 												<li class="nav-item"><a class="nav-link" href="${profileUser}">Welcome, <%=SecurityUtils.getPrincipal().getFullname()%></a></li>
 												<li class="nav-item"><a class="nav-link"
-													href='<c:url value="/thoat"/>'>Thoát</a></li>
+													href='<c:url value="/thoat"/>'>Log out</a></li>
 											</security:authorize>
                                         </ul>
                                     </div>

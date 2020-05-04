@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="motoURL" value="/quan-tri/xe-may/danh-sach"/>
-<c:url var="motoAPI" value="/api/motocrycle"/>
+<c:url var="motoURL" value="/nhan-vien-quan-tri/xe-may/danh-sach"/>
+<c:url var="motoAPI" value="/api/motocrycle" />
 <html>
 <head>
     <title>Chỉnh sửa bài viết</title>
@@ -242,6 +242,7 @@
 						dataType: 'json',
 						success: function (result) {
             				window.location.href = "${motoURL}?page=1&limit=5&message=insert_success";
+            				
            			 	},
 						error: function (error) {
 							window.location.href = "${motoURL}?page=1&limit=5&message=error_system";

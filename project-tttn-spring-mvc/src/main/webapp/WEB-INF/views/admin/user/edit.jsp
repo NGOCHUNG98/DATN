@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <c:url var="userAPI" value="/api/user"/>
-<c:url var="userURL" value="/quan-tri/nguoi-dung/danh-sach"/>
+<c:url var="userURL" value="/nhan-vien-quan-tri/nguoi-dung/danh-sach"/>
 <html>
 <head>
     <title>Chỉnh sửa bài viết</title>

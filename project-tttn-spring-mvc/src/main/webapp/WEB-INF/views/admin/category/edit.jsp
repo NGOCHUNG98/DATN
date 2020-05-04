@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <c:url var="categoryAPI" value="/api/category"/>
-<c:url var="categoryURL" value="/quan-tri/hang-san-xuat/danh-sach"/>
+<c:url var="categoryURL" value="/nhan-vien-quan-tri/hang-san-xuat/danh-sach"/>
 <html>
 <head>
     <title>Chỉnh sửa bài viết</title>

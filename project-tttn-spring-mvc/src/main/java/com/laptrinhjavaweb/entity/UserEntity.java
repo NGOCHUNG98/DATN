@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,23 +34,24 @@ public class UserEntity {
 	
 	@Column(name = "status")
 	private Integer status;
+	
+	@OneToMany(mappedBy="user")
+	private List<OrderEntity> order = new ArrayList<>();
+	
+
+	public List<OrderEntity> getOrder() {
+		return order;
+	}
+
+	public void setOrder(List<OrderEntity> order) {
+		this.order = order;
+	}
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), 
 								  inverseJoinColumns = @JoinColumn(name = "roles_id"))
 	private List<RolesEntity> roles = new ArrayList<>();
 	
-	/*
-	 * @OneToMany(mappedBy="user") private List<OrderEntity> order= new
-	 * ArrayList<>();
-	 */
-
-	
-	/*
-	 * public List<OrderEntity> getOrder() { return order; }
-	 * 
-	 * public void setOrder(List<OrderEntity> order) { this.order = order; }
-	 */
 	public List<RolesEntity> getRoles() {
 		return roles;
 	}

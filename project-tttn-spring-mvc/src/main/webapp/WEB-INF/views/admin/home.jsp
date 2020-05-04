@@ -111,7 +111,7 @@
 
 								<div class="row">
 									<div class="space-6"></div>
-									<form action='<c:url value="/quan-tri/xe-may/danh-sach/import"/>'
+									<form action='<c:url value="/nhan-vien-quan-tri/xe-may/danh-sach/import"/>'
 										method="post" enctype="multipart/form-data">
 										Excel file <input type="file" name="file"> <br> <input
 											type="submit" value="Import">

@@ -61,7 +61,7 @@
 																maxFractionDigits="3" value="${item.motocrycle.price}" />
 															<small class="text-muted">đ</small></td>
 														<td>${item.quantity}</td>
-														<c:if test="${item.order.status == true}">
+														<c:if test="${item.order.status == 1}">
 															<td><input type="checkbox" checked="checked"/></td>
 														</c:if>
 														

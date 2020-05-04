@@ -40,7 +40,7 @@ public class MotocrycleController implements ServletContextAware {
 	@Autowired
 	private MessageUtil messageUtil;
 
-	@RequestMapping(value = "/quan-tri/xe-may/danh-sach", method = RequestMethod.GET)
+	@RequestMapping(value = "/nhan-vien-quan-tri/xe-may/danh-sach", method = RequestMethod.GET)
 	public ModelAndView viewList(@RequestParam("page") int page, @RequestParam("limit") int limit,
 			HttpServletRequest request) {
 		MotocrycleDTO model = new MotocrycleDTO();
@@ -62,7 +62,7 @@ public class MotocrycleController implements ServletContextAware {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/quan-tri/xe-may/danh-sach/chinh-sua", method = RequestMethod.GET)
+	@RequestMapping(value = "/nhan-vien-quan-tri/xe-may/danh-sach/chinh-sua", method = RequestMethod.GET)
 	public ModelAndView viewList(@RequestParam(value = "id", required = false) Long id) {
 		ModelAndView modelAndView = new ModelAndView("admin/moto/edit");
 		MotocrycleDTO model = new MotocrycleDTO();
@@ -74,7 +74,7 @@ public class MotocrycleController implements ServletContextAware {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/quan-tri/xe-may/danh-sach/import", method = RequestMethod.POST)
+	@RequestMapping(value = "/nhan-vien-quan-tri/xe-may/danh-sach/import", method = RequestMethod.POST)
 	public String importExcelFile(@RequestParam("file") MultipartFile file) throws Exception {
 		String fileName = uploadExcelFile(file);
 		String excelPath = servletContext.getRealPath("/resources/excel/" + fileName);
@@ -83,7 +83,7 @@ public class MotocrycleController implements ServletContextAware {
 		for(MotocrycleDTO dto: motocrycleDTO) {
 			motocrycleService.save(dto);
 		}
-		return "redirect:/quan-tri/xe-may/danh-sach?page=1&limit=5&message=import_success";
+		return "redirect:/nhan-vien-quan-tri/xe-may/danh-sach?page=1&limit=5&message=import_success";
 	}
 
 	private String uploadExcelFile(MultipartFile multipartFile) {

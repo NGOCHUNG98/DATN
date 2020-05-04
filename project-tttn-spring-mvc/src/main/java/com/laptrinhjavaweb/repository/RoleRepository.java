@@ -9,6 +9,6 @@ import com.laptrinhjavaweb.entity.RolesEntity;
 
 public interface RoleRepository extends JpaRepository<RolesEntity, Long>{
 	
-	@Query(value = "select * from roles where id=2", nativeQuery = true)
+	@Query(value = "select * from roles where id=3", nativeQuery = true)
 	List<RolesEntity> findUserById();
 }

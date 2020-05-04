@@ -1,8 +1,7 @@
-<%@include file="/common/taglib.jsp"%>
-<c:url var="motoAPI" value="/api/motocrycle" />
-<c:url var="motoURL" value="/quan-tri/xe-may/danh-sach" />
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%><%@include file="/common/taglib.jsp"%>
+<c:url var="motoAPI" value="/api/motocrycle" />
+<c:url var="motoURL" value="/nhan-vien-quan-tri/xe-may/danh-sach" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -18,7 +17,7 @@
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
-						<li><i class="ace-icon fa fa-home home-icon"></i> <a href='<c:url value="/quan-tri/trang-chu"/>'>Trang
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a href='<c:url value="/nhan-vien-quan-tri/trang-chu"/>'>Trang
 								chủ</a></li>
 					</ul>
 					<!-- /.breadcrumb -->
@@ -34,7 +33,7 @@
 									<div class="pull-right tableTools-container">
 										<div class="dt-buttons btn-overlap btn-group">
 											<c:url var="createUserUrl"
-												value="/quan-tri/xe-may/danh-sach/chinh-sua" />
+												value="/nhan-vien-quan-tri/xe-may/danh-sach/chinh-sua" />
 											<a flag="info"
 												class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
 												data-toggle="tooltip" title='Thêm bài viết'
@@ -85,7 +84,7 @@
 														<td>${item.quantity}</td>
 														<td>${item.categoryEntity.name}</td>
 														<td><c:url var="updateMotocrycleUrl"
-																value="/quan-tri/xe-may/danh-sach/chinh-sua">
+																value="/nhan-vien-quan-tri/xe-may/danh-sach/chinh-sua">
 																<c:param name="id" value="${item.id}"></c:param>
 															</c:url> <a class="btn btn-sm btn-primary btn-edit"
 															data-toggle="tooltip" title="Cập nhật bài viết"

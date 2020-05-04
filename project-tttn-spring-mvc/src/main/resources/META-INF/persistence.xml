@@ -7,9 +7,6 @@
         <class>com.laptrinhjavaweb.entity.MotocrycleEntity</class>
         <class>com.laptrinhjavaweb.entity.RolesEntity</class>
         <class>com.laptrinhjavaweb.entity.UserEntity</class>
-        <class>com.laptrinhjavaweb.entity.CityEntity</class>
-        <class>com.laptrinhjavaweb.entity.DistrictEntity</class>
-        <class>com.laptrinhjavaweb.entity.WardEntity</class>
     </persistence-unit>
 </persistence>
 

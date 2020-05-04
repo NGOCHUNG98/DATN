@@ -22,7 +22,7 @@
                     <li class="light-blue dropdown-modal">
                         <a href='<c:url value="/thoat"/>'>
                             <i class="ace-icon fa fa-power-off"></i>
-                            Thoát
+                            Log out
                         </a>
                     </li>
                 </li>

@@ -45,7 +45,7 @@
 			<b class="arrow"></b>
 			<ul class="submenu">
 				<li>
-					<a href='<c:url value="/quan-tri/hang-san-xuat/danh-sach?page=1&limit=5"/>'>
+					<a href='<c:url value="/nhan-vien-quan-tri/hang-san-xuat/danh-sach?page=1&limit=5"/>'>
 						<i class="menu-icon fa fa-caret-right"></i> Danh sách hãng sản xuất
 					</a>
 					<b class="arrow"></b>
@@ -54,7 +54,7 @@
 			<b class="arrow"></b>
 			<ul class="submenu">
 				<li>
-					<a href='<c:url value="/quan-tri/xe-may/danh-sach?page=1&limit=5"/>'>
+					<a href='<c:url value="/nhan-vien-quan-tri/xe-may/danh-sach?page=1&limit=5"/>'>
 						<i class="menu-icon fa fa-caret-right"></i> Danh sách xe máy
 					</a>
 					<b class="arrow"></b>
@@ -63,7 +63,7 @@
 			<b class="arrow"></b>
 			<ul class="submenu">
 				<li>
-					<a href='<c:url value="/quan-tri/nguoi-dung/danh-sach?page=1&limit=4"/>'>
+					<a href='<c:url value="/nhan-vien-quan-tri/nguoi-dung/danh-sach?page=1&limit=4"/>'>
 						<i class="menu-icon fa fa-caret-right"></i> Danh sách người dùng
 					</a>
 					<b class="arrow"></b>
@@ -71,7 +71,7 @@
 			</ul>
 			<ul class="submenu">
 				<li>
-					<a href='<c:url value="/quan-tri/thong-ke"/>'>
+					<a href='<c:url value="/nhan-vien-quan-tri/thong-ke"/>'>
 						<i class="menu-icon fa fa-caret-right"></i> Thông kê dữ liệu
 					</a>
 					<b class="arrow"></b>
@@ -79,7 +79,7 @@
 			</ul>
 			<ul class="submenu">
 				<li>
-					<a href='<c:url value="/quan-tri/hoa-don/danh-sach"/>'>
+					<a href='<c:url value="/nhan-vien-quan-tri/hoa-don/danh-sach"/>'>
 						<i class="menu-icon fa fa-caret-right"></i> Danh sách hóa đơn
 					</a>
 					<b class="arrow"></b>

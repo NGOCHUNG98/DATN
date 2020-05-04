@@ -26,7 +26,7 @@ public class CategoryController {
 	@Autowired
 	private MessageUtil messageUtil;
 
-	@RequestMapping(value = "/quan-tri/hang-san-xuat/danh-sach", method = RequestMethod.GET)
+	@RequestMapping(value = "/nhan-vien-quan-tri/hang-san-xuat/danh-sach", method = RequestMethod.GET)
 	public ModelAndView viewList(@RequestParam("page") int page, @RequestParam("limit") int limit, HttpServletRequest request) {
 		CategoryDTO model=new CategoryDTO();
 		model.setPage(page);
@@ -45,7 +45,7 @@ public class CategoryController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/quan-tri/hang-san-xuat/danh-sach/chinh-sua", method = RequestMethod.GET)
+	@RequestMapping(value = "/nhan-vien-quan-tri/hang-san-xuat/danh-sach/chinh-sua", method = RequestMethod.GET)
 	public ModelAndView viewList(@RequestParam(value = "id", required = false) Long id) {
 		ModelAndView modelAndView = new ModelAndView("admin/category/edit");
 		CategoryDTO model=new CategoryDTO();

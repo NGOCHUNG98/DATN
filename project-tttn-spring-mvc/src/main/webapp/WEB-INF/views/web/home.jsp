@@ -7,24 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Trang chủ</title>
 </head>
-	<script>
-		var totalPages = ${model.totalPage};
-		var currentPage = ${model.page};
-		$(function() {
-			window.pagObj = $('#pagination').twbsPagination({
-				totalPages : totalPages,
-				visiblePages : 10,
-				startPage : currentPage,
-				onPageClick : function(event, page) {
-					if (currentPage != page) {
-						$('#limit').val(4);
-						$('#page').val(page);
-						$('#formSubmit').submit();
-					}
-				}
-			});
-		});
-	</script>
 <body>
 	<!-- ****** Welcome Slides Area Start ****** -->
 	<section class="welcome_area">
@@ -39,7 +21,7 @@
 								<h6 data-animation="bounceInDown" data-delay="0"
 									data-duration="500ms">* Only today we offer free shipping</h6>
 								<h2 data-animation="fadeInUp" data-delay="500ms"
-									data-duration="500ms">Fashion Trends</h2>
+									data-duration="500ms">Passion Trends</h2>
 								<a href="#" class="btn karl-btn" data-animation="fadeInUp"
 									data-delay="1s" data-duration="500ms">Shop Now</a>
 							</div>
@@ -58,9 +40,9 @@
 								<h6 data-animation="fadeInDown" data-delay="0"
 									data-duration="500ms">* Only today we offer free shipping</h6>
 								<h2 data-animation="fadeInUp" data-delay="500ms"
-									data-duration="500ms">Summer Collection</h2>
+									data-duration="500ms">Passion Meets</h2>
 								<a href="#" class="btn karl-btn" data-animation="fadeInLeftBig"
-									data-delay="1s" data-duration="500ms">Check Collection</a>
+									data-delay="1s" data-duration="500ms">Check now</a>
 							</div>
 						</div>
 					</div>
@@ -77,9 +59,9 @@
 								<h6 data-animation="fadeInDown" data-delay="0"
 									data-duration="500ms">* Only today we offer free shipping</h6>
 								<h2 data-animation="bounceInDown" data-delay="500ms"
-									data-duration="500ms">Women Fashion</h2>
+									data-duration="500ms">Cool tyle for Women </h2>
 								<a href="#" class="btn karl-btn" data-animation="fadeInRightBig"
-									data-delay="1s" data-duration="500ms">Check Collection</a>
+									data-delay="1s" data-duration="500ms">Check now</a>
 							</div>
 						</div>
 					</div>
@@ -112,66 +94,7 @@
 	<!-- ****** Top Catagory Area End ****** -->
 	<!-- ****** Quick View Modal Area Start ****** -->
 
-	<%-- <form action="<c:url value='/thong-tin-xe-may'/>" method="get">
-        <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
-        <c:forEach var="item" items="${model.listResult}">
-         	<c:url var="findDetailMotocrycleById" value="/chi-tiet/xe-may">
-				<c:param name="id" value="${item.id}"></c:param>
-			</c:url>
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-				 	
-                    <div class="modal-body">
-                        <div class="quickview_body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-5">
-                                        <div class="quickview_pro_img">
-                                            <img src='<c:url value="/resources/images/${item.thumbnail}"/>' alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-7">
-                                        <div class="quickview_pro_des">
-                                            <h4 class="title">${item.name}</h4>
-                                            <div class="top_seller_product_rating mb-15">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                            </div>
-                                            <h5 class="price">
-                                            	<fmt:formatNumber type="number" maxFractionDigits="3" value="${item.price}" />
-												<small class="text-muted">đ</small>
-												<span>$130</span></h5>
-                                            <p>${item.description}</p>
-                                            <a href="${findDetailMotocrycleById}">View Full Product Details</a>
-                                        </div>
-                                        
-                                        <div class="share_wf mt-30">
-                                            <p>Share With Friend</p>
-                                            <div class="_icon">
-                                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                   
-                </div>
-            </div>
-             </c:forEach>
-        </div>
-        </form> --%>
+	
 	<!-- ****** Quick View Modal Area End ****** -->
 	<!-- ****** New Arrivals Area Start ****** -->
 	<form action='<c:url value="/trang-chu?page=1&limit=6"/>' method="get" id="formSubmit">
@@ -180,7 +103,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="section_heading text-center">
-						<h2>New Arrivals</h2>
+						<h2>New Motorcycle</h2>
 					</div>
 				</div>
 			</div>
@@ -231,10 +154,7 @@
 						</div>
 						
 					</div>
-					<ul class="pagination" id="pagination"></ul>
-						<input type="hidden" value="" id="page" name="page" /> 
-						<input type="hidden" value="" id="limit" name="limit" />
-				</c:forEach>
+					</c:forEach>
 					
 			</div>
 		</div>
@@ -249,12 +169,12 @@
 				<div class="col-12 col-md-8 col-lg-6">
 					<div class="offer-content-area wow fadeInUp" data-wow-delay="1s">
 						<h2>
-							White t-shirt <span class="karl-level">Hot</span>
+							Speed enthusiasts <span class="karl-level">Hot</span>
 						</h2>
 						<p>* Free shipping until 25 Dec 2017</p>
 						<div class="offer-product-price">
 							<h3>
-								<span class="regular-price">$25.90</span> $15.90
+								<span class="regular-price">$9700.00</span> $8500.90
 							</h3>
 						</div>
 						<a href="#" class="btn karl-btn mt-30">Shop Now</a>

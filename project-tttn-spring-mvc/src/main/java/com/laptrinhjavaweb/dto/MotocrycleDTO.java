@@ -1,10 +1,8 @@
 package com.laptrinhjavaweb.dto;
 
-import java.io.Serializable;
-
 import com.laptrinhjavaweb.entity.CategoryEntity;
 
-public class MotocrycleDTO extends AbstractDTO<MotocrycleDTO> implements Serializable  {
+public class MotocrycleDTO extends AbstractDTO<MotocrycleDTO> {
 
 	
 	private int quantity;
@@ -16,16 +14,10 @@ public class MotocrycleDTO extends AbstractDTO<MotocrycleDTO> implements Seriali
 	private String context;
 	private String base64;
 	private CategoryEntity categoryEntity;
-	//private CategoryDTO category=new CategoryDTO();
 	
 	public MotocrycleDTO() {
 		super();
 	}
-	
-	/*
-	 * public MotocrycleDTO( CategoryDTO category) { super(); this.category =
-	 * category; }
-	 */
 	
 	public MotocrycleDTO(int quantity, String description, String name, double price, String thumbnail, String context,
 			CategoryDTO category) {
@@ -81,10 +73,6 @@ public class MotocrycleDTO extends AbstractDTO<MotocrycleDTO> implements Seriali
 	public void setContext(String context) {
 		this.context = context;
 	}
-	/*
-	 * public CategoryDTO getCategory() { return category; } public void
-	 * setCategory(CategoryDTO category) { this.category = category; }
-	 */
 
 	public CategoryEntity getCategoryEntity() {
 		return categoryEntity;
@@ -95,7 +83,7 @@ public class MotocrycleDTO extends AbstractDTO<MotocrycleDTO> implements Seriali
 	}
 
 	public String getBase64() {
-		return base64;
+		return base64.split(",")[1];
 	}
 
 	public void setBase64(String base64) {

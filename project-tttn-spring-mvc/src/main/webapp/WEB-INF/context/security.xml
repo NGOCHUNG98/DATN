@@ -10,8 +10,8 @@
 
 	<http auto-config="false" use-expressions="true" disable-url-rewriting="true">
 		<!-- Start quantri-->
-		<intercept-url pattern="/quan-tri/trang-chu"
-			access="hasAnyRole('ADMIN')" />
+		<intercept-url pattern="/employee/home"
+			access="hasAnyRole('EMPLOYEE')" />
 
 		<access-denied-handler error-page="/accessDenied" />
 		<form-login login-page="/dang-nhap"

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@include file="/common/taglib.jsp"%>
+   <%@ page import="com.laptrinhjavaweb.util.SecurityUtils"%>
    <c:url var="city" value="/city.json"/>
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,7 @@
                     <div class="col-12">
 					    <div class="form-group">
 					        <label for="customerName">Họ và tên</label>
-					        <input type="text" class="form-control" id="customerName" name="customerName" value="${name}" placeholder="Nhập họ và tên">
+					        <input type="text" class="form-control" id="customerName" name="customerName" value="<%=SecurityUtils.getPrincipal().getFullname()%>" placeholder="Nhập họ và tên">
 					    </div>
 					
 					    <div class="form-group">

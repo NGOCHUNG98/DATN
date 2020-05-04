@@ -16,7 +16,7 @@ public class OrderConverter {
 		result.setCustomerPhone(orderEntity.getCustomerPhone());
 		result.setNote(orderEntity.getNote());
 		result.setOrderDate(orderEntity.getOrderDate());
-		result.setStatus(true);
+		result.setStatus(orderEntity.getStatus());
 		//result.setUserId(orderEntity.getUser().getId());
 		return result;
 	}
@@ -28,7 +28,7 @@ public class OrderConverter {
 		result.setCustomerPhone(dto.getCustomerPhone());
 		result.setNote(dto.getNote());
 		result.setOrderDate(dto.getOrderDate());
-		result.setStatus(true);
+		result.setStatus(dto.getStatus());
 		return result;
 	}
 }

@@ -46,7 +46,7 @@
                                                 <%-- <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
                                                 <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="${pr.value.quantity}">
                                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span> --%>
-                                            	<input type="text" name="quantity" value="${pr.value.quantity}">
+                                            	<input type="text" style="width: 50px; text-align: center;" name="quantity" value="${pr.value.quantity}">
                                             </div>
                                         </td>
                                         
@@ -61,7 +61,7 @@
 
                         <div class="cart-footer d-flex mt-30">
                             <div class="back-to-shop w-50">
-                                <a href='<c:url value="/trang-chu?page=1&limit=6"/>'>Continue shooping</a>
+                                <a href='<c:url value="/trang-chu"/>'>Continue shooping</a>
                             </div>
                             <div class="update-checkout w-50 text-right">
                                 <button type="submit" class="btn karl-btn">Clear cart</button>

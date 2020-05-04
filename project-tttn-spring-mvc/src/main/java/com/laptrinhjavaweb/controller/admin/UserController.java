@@ -26,7 +26,7 @@ public class UserController {
 	@Autowired
 	private MessageUtil messageUtil;
 	
-	@RequestMapping(value = "/quan-tri/nguoi-dung/danh-sach", method = RequestMethod.GET)
+	@RequestMapping(value = "/nhan-vien-quan-tri/nguoi-dung/danh-sach", method = RequestMethod.GET)
 	public ModelAndView viewList(@RequestParam("page") int page, @RequestParam("limit") int limit, HttpServletRequest request) {
 		UserDTO model=new UserDTO();
 		model.setPage(page);
@@ -45,7 +45,7 @@ public class UserController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/quan-tri/nguoi-dung/danh-sach/chinh-sua", method = RequestMethod.GET)
+	@RequestMapping(value = "/nhan-vien-quan-tri/nguoi-dung/danh-sach/chinh-sua", method = RequestMethod.GET)
 	public ModelAndView viewList(@RequestParam(value = "id", required = false) Long id) {
 		ModelAndView modelAndView = new ModelAndView("admin/user/edit");
 		UserDTO model=new UserDTO();

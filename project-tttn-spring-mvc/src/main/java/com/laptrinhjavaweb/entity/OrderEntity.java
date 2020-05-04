@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,25 +35,34 @@ public class OrderEntity {
 	private String customerPhone;
 	
 	@Column(name = "status")
-	private boolean status;
+	private Integer status;
 	
 	@Column(name = "note",columnDefinition = "TEXT")
 	private String note;
+
+	@ManyToOne
+    @JoinColumn(name="user_id", nullable=true)
+    private UserEntity user;
 	
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name = "user_id", nullable = false) private UserEntity user;
-	 */
+
+	public UserEntity getUser() {
+		return user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
+	}
 
 	@OneToMany(mappedBy="order")
 	private List<OrderDetailEntity> orderDetail= new ArrayList<>();
 
-	public boolean isStatus() {
+
+
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 

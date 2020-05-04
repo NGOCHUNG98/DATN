@@ -105,12 +105,13 @@
                                                 <td width="35%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 10px;"> ${orderDTO.customerPhone} </td>
                                             </tr>
                                             <c:forEach var="pr" items="${sessionScope.cart}" varStatus="loop">
+                                            <c:set var="s" value="${s+ pr.value.motocrycle.price * pr.value.quantity}"></c:set>
                                             <tr>
                                             
-                                                <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> ${pr.value.motocrycle.name} </td>
+                                                <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> ${pr.value.motocrycle.name} x ${pr.value.quantity}</td>
                                                 <td width="35%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;"> 
                                                 	<span>
-                                        				<fmt:formatNumber type="number" maxFractionDigits="3" value="${pr.value.motocrycle.price}" />
+                                        				<fmt:formatNumber type="number" maxFractionDigits="3" value="${pr.value.motocrycle.price * pr.value.quantity}" />
 														<small class="text-muted">đ</small>
 													</span>
 												</td>
@@ -135,7 +136,7 @@
                                                 <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;"> TOTAL </td>
                                                 <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
                                                 	<span>
-                                        				<fmt:formatNumber type="number" maxFractionDigits="3" value="${sessionScope.myCartTotal}" />
+                                        				<fmt:formatNumber type="number" maxFractionDigits="3" value="${s}" />
 														<small>đ</small>
 													</span>
                                                  </td>

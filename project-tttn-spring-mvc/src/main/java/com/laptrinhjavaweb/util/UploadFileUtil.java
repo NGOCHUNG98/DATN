@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UploadFileUtil {
 
-	public final String root = "C:\\Users\\ADMIN\\Desktop\\DATN\\project-tttn-spring-mvc\\src\\main\\webapp\\resources";
+	public final String root = "D:\\Project\\DATN\\project-tttn-spring-mvc\\src\\main\\webapp\\resources";
 
 	public void writeOrUpdate(byte[] bytes, String path) {
 		File file = new File(StringUtils.substringBeforeLast(root + path, "\\"));
@@ -24,15 +24,4 @@ public class UploadFileUtil {
 			e.printStackTrace();
 		}
 	}
-
-	/*
-	 * public static String upload(ServletContext servletContext, MultipartFile
-	 * multipartFile) { try { SimpleDateFormat simpleDateFormat = new
-	 * SimpleDateFormat("yyyyMMddHHmmss"); String
-	 * fileName=simpleDateFormat.format(new Date()) +
-	 * multipartFile.getOriginalFilename(); Path path =
-	 * Paths.get(servletContext.getRealPath("/resources/images" + fileName));
-	 * Files.write(path, multipartFile.getBytes()); return fileName; } catch
-	 * (IOException e) { return null; } }
-	 */
 }

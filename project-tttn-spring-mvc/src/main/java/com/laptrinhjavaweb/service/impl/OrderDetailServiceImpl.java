@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.converter.OrderDetailConverter;
-import com.laptrinhjavaweb.converter.OrderDetailListConverter;
 import com.laptrinhjavaweb.dto.OrderDetailDTO;
-import com.laptrinhjavaweb.dto.OrderDetailListDTO;
 import com.laptrinhjavaweb.entity.MotocrycleEntity;
 import com.laptrinhjavaweb.entity.OrderDetailEntity;
 import com.laptrinhjavaweb.entity.OrderEntity;
@@ -23,8 +21,6 @@ import com.laptrinhjavaweb.service.IOrderDetailService;
 @Service
 public class OrderDetailServiceImpl implements IOrderDetailService {
 	
-	@Autowired
-	private OrderDetailListConverter orderListConverter;
 
 	@Autowired
 	private OrderDetailRepository orderDetailRepository;
@@ -50,16 +46,6 @@ public class OrderDetailServiceImpl implements IOrderDetailService {
 		return orderDetailConverter.toDto(orderDetailRepository.save(entity));
 	}
 
-	@Override
-	public List<OrderDetailListDTO> fillAll(OrderDetailListDTO dto) {
-		List<OrderDetailListDTO> model = new ArrayList<>();
-		List<OrderDetailEntity> entities = orderDetailRepository.findAllOrderDetail();
-		for (OrderDetailEntity item : entities) {
-			OrderDetailListDTO detailListDTO = orderListConverter.toDto(item);
-			model.add(detailListDTO);
-		}
-		return model;
-	}
 
 	@Override
 	public List<OrderDetailDTO> findAll() {

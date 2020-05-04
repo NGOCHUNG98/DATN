@@ -20,7 +20,7 @@ public class ReportOrderController {
 	@Autowired
 	private IReportOrderService reportService;
 
-	@RequestMapping(value = "/quan-tri/thong-ke", method = RequestMethod.GET)
+	@RequestMapping(value = "/nhan-vien-quan-tri/thong-ke", method = RequestMethod.GET)
 	public ModelAndView viewReport(ModelMap mm, HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView("admin/report/report");
 		Date date = new Date();

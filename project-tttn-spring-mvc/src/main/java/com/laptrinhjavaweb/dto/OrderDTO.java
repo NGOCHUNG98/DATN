@@ -9,7 +9,7 @@ public class OrderDTO extends AbstractDTO<OrderDTO> {
 	private String customerAddress;
 	private String customerPhone;
 	private Timestamp orderDate;
-	private boolean status;
+	private Integer status;
 	private Long userId;
 	public int getQuantity() {
 		return quantity;
@@ -54,12 +54,13 @@ public class OrderDTO extends AbstractDTO<OrderDTO> {
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
-	public boolean isStatus() {
+	public Integer getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
+
 	
 	
 }

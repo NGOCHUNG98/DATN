@@ -26,7 +26,7 @@ public class OrderDetailController {
 	 * modelAndView.addObject("orderDetailService",orderDetailService);
 	 * System.out.println(orderDetailService.toString()); return modelAndView; }
 	 */
-	@RequestMapping(value = "/quan-tri/hoa-don/danh-sach", method = RequestMethod.GET)
+	@RequestMapping(value = "/nhan-vien-quan-tri/hoa-don/danh-sach", method = RequestMethod.GET)
 	public ModelAndView viewList(@ModelAttribute("orderDetailList") OrderDetailDTO model) {
 		ModelAndView modelAndView = new ModelAndView("admin/orderdetail/list");
 		model.setListResult(orderDetailService.findAll());

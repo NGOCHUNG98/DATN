@@ -1,6 +1,6 @@
 <%@include file="/common/taglib.jsp"%>
 <c:url var="categoryAPI" value="/api/category"/>
-<c:url var="categoryURL" value="/quan-tri/hang-san-xuat/danh-sach"/>
+<c:url var="categoryURL" value="/nhan-vien-quan-tri/hang-san-xuat/danh-sach"/>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,7 +37,7 @@
 									<div class="table-btn-controls">
 										<div class="pull-right tableTools-container">
 											<div class="dt-buttons btn-overlap btn-group">
-												<c:url var="createCategoryUrl" value="/quan-tri/hang-san-xuat/danh-sach/chinh-sua"/>
+												<c:url var="createCategoryUrl" value="/nhan-vien-quan-tri/hang-san-xuat/danh-sach/chinh-sua"/>
 												<a flag="info"
 												   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip"
 												   title='Thêm hãng sản xuất' href='${createCategoryUrl}'>
@@ -74,7 +74,7 @@
 															<td>${item.id}</td>
 															<td>${item.name}</td>
 															<td>
-															<c:url var="updateCategoryleUrl" value="/quan-tri/hang-san-xuat/danh-sach/chinh-sua">
+															<c:url var="updateCategoryleUrl" value="/nhan-vien-quan-tri/hang-san-xuat/danh-sach/chinh-sua">
 																<c:param name="id" value="${item.id}"></c:param>
 															</c:url>																
 																<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
