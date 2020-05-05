@@ -4,59 +4,52 @@
 <html>
 <head>
 	<title><dec:title default="Trang chủ" /></title>
-	<link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" />
-    <script src="<c:url value='/template/admin/assets/js/ace-extra.min.js' />"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type='text/javascript' src='<c:url value="/template/admin/js/jquery-2.2.3.min.js" />'></script>
-    <script src="<c:url value='/template/admin/assets/js/jquery.2.1.1.min.js' />"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
-    <script src="<c:url value='/ckeditor/ckeditor.js' />"></script>
-    <!-- sweetalert -->
-     <script src="<c:url value='/template/admin/sweetalert/sweetalert2.min.js' />"></script>
-     <link rel="stylesheet" href="<c:url value='/template/admin/sweetalert/sweetalert2.min.css' />" />
-     
-</head>
-<body class="no-skin">
-	<!-- header -->
-    <%@ include file="/common/admin/header.jsp" %>
-    <!-- header -->
 	
-	<div class="main-container" id="main-container">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300,100,700,900' rel='stylesheet'
+          type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="<c:url value='/template/admin/css/lib/getmdl-select.min.css' />" />
+    <link rel="stylesheet" href="<c:url value='/template/admin/css/lib/nv.d3.min.css' />" />
+    <link rel="stylesheet" href="<c:url value='/template/admin/css/application.min.css' />" />
+    <!-- endinject -->
+	
+</head>
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header is-small-screen">
+	
 		<!-- header -->
+    	<%@ include file="/common/admin/header.jsp" %>
+    	<!-- header -->
+    	
+    	<!-- header -->
     	<%@ include file="/common/admin/menu.jsp" %>
     	<!-- header -->
-		
-		<dec:body/>
-		
-		<!-- footer -->
-    	<%@ include file="/common/admin/footer.jsp" %>
-    	<!-- footer -->
     	
-    	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse display">
-				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-		</a>
+    	<dec:body/>
 	</div>
 	
 	
-	<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery-ui.custom.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.ui.touch-punch.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.easypiechart.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.sparkline.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.flot.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.flot.pie.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.flot.resize.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/ace-elements.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/ace.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js'/>"></script>
 	
-	<!-- page specific plugin scripts -->
-	<script src="<c:url value='/template/admin/assets/js/jquery-ui.min.js'/>"></script>
+	<!-- inject:js -->
+	<script src="<c:url value='/template/admin/js/d3.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/getmdl-select.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/material.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/nv.d3.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/layout/layout.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/scroll/scroll.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/widgets/charts/discreteBarChart.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/widgets/charts/linePlusBarChart.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/widgets/charts/stackedBarChart.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/widgets/employer-form/employer-form.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/widgets/line-chart/line-charts-nvd3.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/widgets/pie-chart/pie-charts-nvd3.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/widgets/table/table.min.js' />"></script>
+	<script src="<c:url value='/template/admin/js/widgets/todo/todo.min.js' />"></script>
+	
+	
+	<!-- endinject -->
 </body>
 </html>

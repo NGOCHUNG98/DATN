@@ -44,6 +44,17 @@ public class UserServiceImpl implements IUserService {
 		}
 		return model;
 	}
+	
+	@Override
+	public List<UserDTO> findAllByEmployee() {
+		List<UserDTO> result=new ArrayList<UserDTO>();
+		List<UserEntity> entities = userRepository.findAllByEmployee();
+		for(UserEntity item: entities) {
+			UserDTO dto = userConverter.toDto(item);
+			result.add(dto);
+		}
+		return result;
+	}
 
 	@Override
 	@Transactional
@@ -57,6 +68,21 @@ public class UserServiceImpl implements IUserService {
 			entity = userConverter.toEntity(dto);
 			entity.setRoles(new ArrayList<RolesEntity>(roleRepository.findUserById()));
 			entity.setPassword(bCryptPasswordEncoder.encode(dto.getPassword()));
+		}
+		return userConverter.toDto(userRepository.save(entity));
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional
+	public UserDTO saveAdmin(UserDTO dto) {
+		RolesEntity rolesEntity=roleRepository.findOneById(dto.getRole().getId());
+		UserEntity entity = new UserEntity();
+		if(dto.getId()!=null) {
+			UserEntity oldUser=userRepository.findOne(dto.getId());
+			entity.setRoles((List<RolesEntity>) rolesEntity.getUsers().get(0));
+			entity = userConverter.toEntity(oldUser, dto);
 		}
 		return userConverter.toDto(userRepository.save(entity));
 	}

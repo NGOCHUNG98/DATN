@@ -50,13 +50,23 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/thay-doi-mat-khau", method = RequestMethod.POST)
-	public String changePassword(@ModelAttribute("model") UserDTO model,
-
-			@RequestParam(value = "username", required = false) String username, HttpServletRequest request) {
+	public String changePassword(@ModelAttribute("model") UserDTO model, @RequestParam(value = "username", required = false) String username, HttpServletRequest request) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		ModelAndView modelAndView = new ModelAndView("web/profileUser");
+		
 		modelAndView.addObject("user", model);
 		return "redirect:/thong-tin-ca-nhan?username=" + authentication.getName() + "";
+	}
+	
+	@RequestMapping(value = "/dang-ky-thanh-vien", method = RequestMethod.POST)
+	public ModelAndView registrationUser(@ModelAttribute("registration") UserDTO user, HttpServletRequest request) {
+		ModelAndView modelAndView = new ModelAndView("web/home");
+		user.setFullName(request.getParameter("fullName"));
+		user.setUserName(request.getParameter("userName"));
+		user.setPassword(request.getParameter("password"));
+		user.setStatus(1);
+		userService.save(user);
+		return modelAndView;
 	}
 
 }

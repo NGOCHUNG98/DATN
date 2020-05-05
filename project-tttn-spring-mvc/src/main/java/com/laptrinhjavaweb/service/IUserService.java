@@ -8,9 +8,11 @@ import com.laptrinhjavaweb.dto.UserDTO;
 
 public interface IUserService {
 	List<UserDTO> findAll(Pageable pageable);
+	List<UserDTO> findAllByEmployee();
 	UserDTO findOne(long id);
 	UserDTO findOneByUserName(String userName);
 	UserDTO save(UserDTO dto);
+	UserDTO saveAdmin(UserDTO dto);
 	void delete(long[] ids);
 	int getTotalItem();
 	void addUser(UserDTO userDTO);
@@ -18,4 +20,5 @@ public interface IUserService {
 	void addUserOrder(UserDTO userDTO);
 	double getUserOrderTotal(long order_id);
 	Long findByIdOfUserName(String userName);
+	
 }

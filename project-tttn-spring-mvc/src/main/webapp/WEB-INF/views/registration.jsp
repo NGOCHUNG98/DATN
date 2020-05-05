@@ -38,7 +38,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" name="passwork" required="required" placeholder="Passwork *" value="<c:url value="${registration.passwork}"/>" />
+						<input type="password" class="form-control" name="password" required="required" placeholder="Passwork *" value="<c:url value="${registration.password}"/>" />
 					</div>
 					
 					

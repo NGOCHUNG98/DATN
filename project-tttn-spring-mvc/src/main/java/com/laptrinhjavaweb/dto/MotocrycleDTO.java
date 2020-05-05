@@ -1,6 +1,5 @@
 package com.laptrinhjavaweb.dto;
 
-import com.fasterxml.jackson.annotation.*;
 import com.laptrinhjavaweb.entity.CategoryEntity;
 
 public class MotocrycleDTO extends AbstractDTO<MotocrycleDTO> {
@@ -81,6 +80,7 @@ public class MotocrycleDTO extends AbstractDTO<MotocrycleDTO> {
 	public void setCategoryEntity(CategoryEntity categoryEntity) {
 		this.categoryEntity = categoryEntity;
 	}
+	
 	public String getBase64() {
 		return base64.split(",")[1];
 	}

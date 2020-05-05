@@ -1,21 +1,16 @@
 package com.laptrinhjavaweb.dto;
 
+import com.laptrinhjavaweb.entity.RolesEntity;
+
 public class UserDTO extends AbstractDTO<UserDTO> {
 	
-	private String address;
 	private String fullName;
 	private String userName;
 	private String password;
-	private String passwordConf;
-	private String phoneNumber;
 	private Integer status;
+	private RolesEntity role;
 	
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
 	public String getFullName() {
 		return fullName;
 	}
@@ -34,22 +29,17 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
 	public Integer getStatus() {
 		return status;
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public String getPasswordConf() {
-		return passwordConf;
+	public RolesEntity getRole() {
+		return role;
 	}
-	public void setPasswordConf(String passwordConf) {
-		this.passwordConf = passwordConf;
+	public void setRole(RolesEntity role) {
+		this.role = role;
 	}
+
 }

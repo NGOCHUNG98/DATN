@@ -18,9 +18,7 @@ public class PasswordValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "valid.password");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "passwordConf", "valid.passwordConf");
         UserDTO password = (UserDTO) obj;
-        if (!password.getPassword().equals(password.getPasswordConf())) {
-            errors.rejectValue("passwordConf", "valid.passwordConfDiff");
-        }
+        
     }
 
 }

@@ -19,37 +19,28 @@ import org.springframework.web.servlet.ModelAndView;
 import com.laptrinhjavaweb.dto.CartDTO;
 import com.laptrinhjavaweb.dto.MotocrycleDTO;
 import com.laptrinhjavaweb.service.IMotocrycleService;
+import com.laptrinhjavaweb.service.IShoppingCartService;
 
 @Controller(value = "shoppingCartControllerOfWeb")
 public class ShoppingCartController {
 
 	@Autowired
 	private IMotocrycleService motocrycleService;
+	
+	@Autowired
+	private IShoppingCartService shoppingCartService;
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/mua-hang", method = RequestMethod.GET)
-	public ModelAndView buy(@RequestParam(value = "id", required = false) Long id, ModelMap mm, HttpSession session) {
+	public ModelAndView buy(@RequestParam(value = "id", required = false) Long id, ModelMap mm, HttpSession session, MotocrycleDTO motocrycle) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (authentication != null) {
 			HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>) session.getAttribute("cart");
 			if (cart == null) {
 				cart = new HashMap<>();
 			}
-			MotocrycleDTO motocrycle = new MotocrycleDTO();
 			motocrycle = motocrycleService.findOne(id);
-			if (motocrycle != null) {
-				if (cart.containsKey(id)) {
-					CartDTO item = cart.get(id);
-					item.setMotocrycle(motocrycle);
-					item.setQuantity(item.getQuantity() + 1);
-					cart.put(id, item);
-				} else {
-					CartDTO item = new CartDTO();
-					item.setMotocrycle(motocrycle);
-					item.setQuantity(1);
-					cart.put(id, item);
-				}
-			}
+			shoppingCartService.create(motocrycle, cart, id);
 			session.setAttribute("cart", cart);
 			session.setAttribute("myCartTotal", totalPrice(cart));
 			session.setAttribute("myCartNum", cart.size());
@@ -65,15 +56,13 @@ public class ShoppingCartController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/gio-hang/xoa-hang", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam(value = "id", required = false) Long id, HttpSession session) {
+	public ModelAndView delete(@RequestParam(value = "id", required = false) Long id, HttpSession session, MotocrycleDTO motocrycle) {
 		ModelAndView modelAndView = new ModelAndView("web/cart");
 		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>) session.getAttribute("cart");
 		if (cart == null) {
 			cart = new HashMap<>();
 		}
-		if (cart.containsKey(id)) {
-			cart.remove(id);
-		}
+		shoppingCartService.delete(motocrycle, cart, id);
 		session.setAttribute("cart", cart);
 		session.setAttribute("myCartTotal", totalPrice(cart));
 		session.setAttribute("myCartNum", cart.size());
@@ -86,17 +75,7 @@ public class ShoppingCartController {
 		ModelAndView modelAndView = new ModelAndView("web/cart");
 		HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>) session.getAttribute("cart");
 		String[] quantity = request.getParameterValues("quantity");
-		try {
-			int i=0;
-			for (Map.Entry<Long, CartDTO> list : cart.entrySet()) {
-				list.getValue().setQuantity(Integer.parseInt(quantity[i]));
-				i++;
-				//cart.setQuantity(Integer.parseInt(quantity[i]));
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		
+		shoppingCartService.updateQuantity(cart, quantity);
 		session.setAttribute("cart", cart);
 		return modelAndView;
 	}

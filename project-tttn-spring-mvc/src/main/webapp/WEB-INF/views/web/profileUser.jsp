@@ -97,7 +97,7 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="password"  value='<c:url value="${model.password}" />' id="password" > 
+                                    <input type="password" class="form-control" name="password" required="required" value='<c:url value="${model.password}" />' id="password" placeholder="Enter new password"> 
                                 </div>
                             </div>
 
@@ -107,12 +107,12 @@
              
                     <div class="panel panel-info" style="margin: 1em;">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><label for="confirm_password" class="control-label panel-title">Confirm password</label></h3>
+                            <h3 class="panel-title"><label for="confirm_password"  class="control-label panel-title">Confirm password</label></h3>
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-sm-10">
-                                     <input type="password" class="form-control" value="" name="passwordConf" value='<c:url value="${model.passwordConf}" />' id="passwordConf">
+                                     <input type="password" class="form-control" value="" name="passwordConf" required="required" id="passwordConf" placeholder="Confirm password">
                                      <div id="msg"></div>
                                 </div>
                             </div>

@@ -11,4 +11,6 @@ public interface RoleRepository extends JpaRepository<RolesEntity, Long>{
 	
 	@Query(value = "select * from roles where id=3", nativeQuery = true)
 	List<RolesEntity> findUserById();
+	
+	RolesEntity findOneById(long id);
 }

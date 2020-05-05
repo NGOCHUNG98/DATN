@@ -1,23 +1,15 @@
 package com.laptrinhjavaweb.controller.web;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -32,7 +24,7 @@ import com.laptrinhjavaweb.dto.OrderDTO;
 import com.laptrinhjavaweb.dto.OrderDetailDTO;
 import com.laptrinhjavaweb.service.IOrderDetailService;
 import com.laptrinhjavaweb.service.IOrderService;
-import com.laptrinhjavaweb.util.SecurityUtils;
+import com.laptrinhjavaweb.util.GetCityUtils;
 
 @Controller(value = "inFoCustomerControllerOfWeb")
 public class CustomerOrderController {
@@ -42,37 +34,19 @@ public class CustomerOrderController {
 
 	@Autowired
 	private IOrderDetailService orderDetailService;
+	
+	@Autowired
+	private GetCityUtils getCityUtils;
 
-	/*
-	 * @Autowired private ICityService cityService;
-	 */
 	ShoppingCartController shopping = new ShoppingCartController();
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/thanh-toan", method = RequestMethod.GET)
 	public ModelAndView pay(HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView("web/pay");
-		try {
-			File file=new File("D:\\Project\\DATN\\project-tttn-spring-mvc\\src\\main\\webapp\\resources\\json\\city.json");
-			JSONParser parser = new JSONParser();
-			BufferedReader in = new BufferedReader(
-					   new InputStreamReader(
-			                      new FileInputStream(file), "UTF-8"));
-			Object object = parser.parse(in);
-			JSONObject LtsItem = (JSONObject) object;
-			JSONArray jsonArray = (JSONArray) LtsItem.get("LtsItem");
-			Iterator<JSONObject> iterator = jsonArray.iterator();
-			List<String> listTitle=new ArrayList<String>();
-			while (iterator.hasNext()) {
-				String title=(String) iterator.next().get("Title");
-				listTitle.add(title);
-			}
-			modelAndView.addObject("title", listTitle);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		String name = SecurityUtils.getPrincipal().getFullname();
-		modelAndView.addObject("name", name);
+		List<String> listTitle = new ArrayList<String>();
+		listTitle = getCityUtils.cityJson(listTitle);
+		modelAndView.addObject("title", listTitle);
 		if (session != null) {
 			HashMap<Long, CartDTO> cart = (HashMap<Long, CartDTO>) session.getAttribute("cart");
 			session.setAttribute("cart", cart);
@@ -104,7 +78,6 @@ public class CustomerOrderController {
 			orderDTO=orderService.save(orderDTO);
 			OrderDetailDTO orderDetailDTO = new OrderDetailDTO();
 			for (Map.Entry<Long, CartDTO> entry : cart.entrySet()) {
-				//OrderEntity entity=new OrderEntity();
 				orderDetailDTO.setOrderId(orderDTO.getId());
 				orderDetailDTO.setMotocrycleId(entry.getValue().getMotocrycle().getId());
 				orderDetailDTO.setQuantity(entry.getValue().getQuantity());

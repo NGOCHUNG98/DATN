@@ -8,7 +8,6 @@ import com.laptrinhjavaweb.entity.UserEntity;
 @Component
 public class UserConverter {
 
-	
 	public UserDTO toDto(UserEntity entity) {
 		UserDTO result = new UserDTO();
 		result.setId(entity.getId());
@@ -16,6 +15,11 @@ public class UserConverter {
 		result.setUserName(entity.getUserName());
 		result.setPassword(entity.getPassword());
 		result.setStatus(entity.getStatus());
+		try {
+			result.setRole(entity.getRoles().get(0));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		return result;
 	}
 
@@ -31,7 +35,7 @@ public class UserConverter {
 		result.setFullname(dto.getFullName());
 		result.setUserName(dto.getUserName());
 		result.setStatus(dto.getStatus());
-		
+
 		return result;
 	}
 

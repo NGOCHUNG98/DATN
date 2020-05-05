@@ -14,15 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.dto.MotocrycleDTO;
-import com.laptrinhjavaweb.dto.UserDTO;
 import com.laptrinhjavaweb.service.IMotocrycleService;
-import com.laptrinhjavaweb.service.IUserService;
 
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
 
-	@Autowired
-	private IUserService userService;
 
 
 	@Autowired
@@ -48,16 +44,6 @@ public class HomeController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/dang-ky-thanh-vien", method = RequestMethod.POST)
-	public ModelAndView registrationUser(@ModelAttribute("registration") UserDTO user, HttpServletRequest request) {
-		ModelAndView modelAndView = new ModelAndView("web/home");
-		user.setFullName(request.getParameter("fullName"));
-		user.setUserName(request.getParameter("userName"));
-		user.setPassword(request.getParameter("passwork"));
-		user.setStatus(1);
-		userService.save(user);
-		return modelAndView;
-	}
 
 	@RequestMapping(value = "/thoat", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
