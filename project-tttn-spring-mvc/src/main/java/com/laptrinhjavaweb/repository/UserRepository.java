@@ -16,6 +16,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long>{
 	
 	UserEntity findOneByUserName(String userName);
 	
-	@Query(value = "select * from user, user_role where user.id=user_role.user_id and  user_role.roles_id=1", nativeQuery = true)
+	@Query(value = "select * from user, user_role where user.id=user_role.user_id and  user_role.roles_id in (1,2)", nativeQuery = true)
 	List<UserEntity> findAllByEmployee();
 }

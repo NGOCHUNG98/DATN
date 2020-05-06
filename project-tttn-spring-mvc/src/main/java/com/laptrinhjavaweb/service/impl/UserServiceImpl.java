@@ -73,17 +73,17 @@ public class UserServiceImpl implements IUserService {
 	}
 	
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public UserDTO saveAdmin(UserDTO dto) {
-		RolesEntity rolesEntity=roleRepository.findOneById(dto.getRole().getId());
+		List<RolesEntity> rolesEntity = roleRepository.findAllById(dto.getRoleId());
 		UserEntity entity = new UserEntity();
 		if(dto.getId()!=null) {
 			UserEntity oldUser=userRepository.findOne(dto.getId());
-			entity.setRoles((List<RolesEntity>) rolesEntity.getUsers().get(0));
 			entity = userConverter.toEntity(oldUser, dto);
+			entity.setRoles(rolesEntity);
 		}
+		entity.setPassword(bCryptPasswordEncoder.encode(dto.getPassword()));
 		return userConverter.toDto(userRepository.save(entity));
 	}
 

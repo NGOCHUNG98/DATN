@@ -25,8 +25,8 @@
                                 <th class="mdl-data-table__cell--non-numeric">Tên đăng nhập</th>
                                 <th class="mdl-data-table__cell--non-numeric">Mật khẩu</th>
                                 <th class="mdl-data-table__cell--non-numeric">Tình trạng</th>
-                                <th class="mdl-data-table__cell--non-numeric">Action</th>
                                 <th class="mdl-data-table__cell--non-numeric">Quyền</th>
+                                <th class="mdl-data-table__cell--non-numeric">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -39,10 +39,10 @@
                                     	<td class="mdl-data-table__cell--non-numeric"><span class="label label--mini color--green">Active</span> </td>
                                     </c:if>
                                     <c:if test="${item.status==0}">
-                                    	<td class="mdl-data-table__cell--non-numeric"><span class="label label--mini color--green">Inactive</span> </td>
+                                    	<td class="mdl-data-table__cell--non-numeric"><span class="label label--mini color--red">Inactive</span> </td>
                                     </c:if>
+                                    <td class="mdl-data-table__cell--non-numeric">${item.role.name}</td>
                                     <td class="mdl-data-table__cell--non-numeric"><a href="<c:url value="/admin/action?id=${item.id}"/>" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button--colored-teal" data-upgraded=",MaterialButton,MaterialRipple">Edit<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a></td>
-                             		<td class="mdl-data-table__cell--non-numeric">${item.role.name}</td>
                              	</tr>
                              	</c:forEach>
                             </tbody>

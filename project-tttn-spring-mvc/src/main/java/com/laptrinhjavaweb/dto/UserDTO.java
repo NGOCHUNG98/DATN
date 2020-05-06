@@ -8,6 +8,7 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	private String userName;
 	private String password;
 	private Integer status;
+	private Long roleId;
 	private RolesEntity role;
 	
 	
@@ -40,6 +41,12 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	}
 	public void setRole(RolesEntity role) {
 		this.role = role;
+	}
+	public Long getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
 	}
 
 }
